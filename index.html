@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>First Class – Formulários</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f7f4ee; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; }
+    header { text-align: center; margin-bottom: 36px; }
+    .logo { width: 64px; height: 64px; background: #c9a84c; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 900; color: #1a1a2e; margin: 0 auto 14px; }
+    h1 { font-size: 22px; color: #1a1a2e; font-weight: 800; }
+    p { font-size: 13px; color: #888; margin-top: 4px; }
+    .cards { display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 400px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.1); border-left: 5px solid #c9a84c; padding: 20px 22px; text-decoration: none; color: #1a1a2e; display: flex; align-items: center; gap: 16px; transition: transform .15s, box-shadow .15s; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.15); }
+    .card-icon { font-size: 28px; flex-shrink: 0; }
+    .card-title { font-size: 16px; font-weight: 700; }
+    .card-sub { font-size: 12px; color: #888; margin-top: 3px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">FC</div>
+    <h1>First Class</h1>
+    <p>Selecione o formulário</p>
+  </header>
+  <div class="cards">
+    <a class="card" href="first_class_supervisao.html">
+      <div class="card-icon">📋</div>
+      <div>
+        <div class="card-title">Supervisão de Campo</div>
+        <div class="card-sub">Checklist de visita à loja</div>
+      </div>
+    </a>
+    <a class="card" href="recrutamento_first_class_v3.html">
+      <div class="card-icon">🎯</div>
+      <div>
+        <div class="card-title">Recrutamento & Seleção</div>
+        <div class="card-sub">Guia completo de processo seletivo</div>
+      </div>
+    </a>
+  </div>
+</body>
+</html>

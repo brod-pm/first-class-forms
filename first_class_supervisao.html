@@ -768,11 +768,15 @@ async function gerarRelatorioIA() {
 
   try {
     var res = await fetch(
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + GEMINI_KEY,
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + GEMINI_KEY,
       { method:'POST', headers:{'Content-Type':'application/json'},
         body: JSON.stringify({ contents:[{ parts:[{ text: prompt }] }], generationConfig:{ temperature:0.7, maxOutputTokens:2500 } }) }
     );
-    if (!res.ok) throw new Error('Erro HTTP ' + res.status);
+    if (!res.ok) {
+      var errBody = await res.json().catch(function(){ return {}; });
+      var errMsg = (errBody.error && errBody.error.message) ? errBody.error.message : 'Erro HTTP ' + res.status;
+      throw new Error(errMsg);
+    }
     var json = await res.json();
     var txt = json.candidates[0].content.parts[0].text;
     // Renderiza markdown básico

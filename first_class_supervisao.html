@@ -687,6 +687,7 @@
   <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;">
     <button class="rcl-btn" onclick="fecharRelatorio()">✕ Fechar</button>
     <button class="rcl-btn" style="background:#c9a84c;color:#1a1a2e" id="btn-copiar-fmt" onclick="copiarRelatorioFormatado(this)">📋 Copiar p/ Email</button>
+    <button class="rcl-btn" style="background:#DB4437;color:#fff" onclick="abrirGmail()">✉️ Abrir Gmail</button>
     <button class="rcl-btn" style="background:#1565c0" onclick="abrirEmailVazio()">✉️ Abrir Email</button>
     <button class="rcl-btn" style="background:#2e7d32" onclick="window.print()">🖨 Imprimir</button>
   </div>
@@ -1019,6 +1020,20 @@ async function copiarRelatorioFormatado(btn) {
     btn.textContent = '✅ Selecionado! Copie (Cmd+C)';
     setTimeout(function(){ btn.textContent = originalText; window.getSelection().removeAllRanges(); }, 4000);
   }
+}
+
+function abrirGmail() {
+  var to  = document.getElementById('email-to').value.trim();
+  var cc  = document.getElementById('email-cc').value.trim();
+  var loja = document.getElementById('loja').value || 'Visita';
+  var dataVal = document.getElementById('data').value;
+  var data = dataVal ? new Date(dataVal + 'T12:00:00').toLocaleDateString('pt-BR') : '';
+  var subject = ('SUPERVISÃO FIRST CLASS – ' + loja + (data ? ' – ' + data : '')).toUpperCase();
+  var url = 'https://mail.google.com/mail/?view=cm&fs=1'
+    + '&su=' + encodeURIComponent(subject)
+    + (to ? '&to=' + encodeURIComponent(to) : '')
+    + (cc ? '&cc=' + encodeURIComponent(cc) : '');
+  window.open(url, '_blank');
 }
 
 function abrirEmailVazio() {

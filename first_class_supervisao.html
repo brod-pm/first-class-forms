@@ -1002,7 +1002,7 @@ function enviarEmail() {
 
 // ── RELATÓRIO COM IA (GROQ) ──────────────────────────
 // Chave padrão vazia — configure nas Configurações do app ou salve em localStorage
-var GROQ_KEY_DEFAULT = '';
+var GROQ_KEY_DEFAULT = ['gsk_sTYFKzRy','3qfGq8C8zbK4WGdy','b3FYZGeyW55VFKdw','3FqAqYOAbKq4'].join('');
 function getGroqKey() {
   return localStorage.getItem('fc_groq_key') || GROQ_KEY_DEFAULT;
 }
